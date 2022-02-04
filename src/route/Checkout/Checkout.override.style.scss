@@ -2,4 +2,8 @@
     &::before {
         content: none;
     }
+    .Progress-Style{
+        background: var(--breadcrumbs-background);
+        padding: 2rem 0 2rem 0;
+    }
 } 

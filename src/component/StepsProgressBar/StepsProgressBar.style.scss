@@ -1,0 +1,116 @@
+@keyframes animateWidth {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 50%;
+    }
+    
+}
+.progress-container {
+  display: flex;
+  justify-content: stretch;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 10px;
+    top: 17px;
+    background: gray;
+    z-index: 0;
+  }
+}
+.StepItem {
+    position: relative;
+  z-index: 1;
+width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.295);
+  transition: all 0.25s;
+  gap: 1rem;
+  .stepItem-Index {
+    background-color: #e3e5e9;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+}
+.StepItem.finished ,.StepItem.active{
+color: black;
+    .stepItem-Index{
+        background-color: var(--primary-base-color);
+        color: white;
+        
+    }
+
+}
+
+.StepItem.active::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    left: 0;
+    height: 10px;
+    top: 17px;
+    animation: animateWidth 1.5s  forwards;
+
+    
+    background:  var(--primary-base-color);
+    z-index: -1;
+  }
+  .StepItem.finished::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    left: 0;
+    height: 10px;
+    top: 17px;
+    background:  var(--primary-base-color);
+    z-index: -1;
+  }
+
+   .StepItem.active::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    left: 0%;
+    height: 10px;
+    top: 17px;
+    background:  var(--primary-base-color);
+    animation: animateWidth 2.3s  cubic-bezier(1,-0.02,1,-0.15) forwards;
+    z-index: -1;
+  }
+  .StepItem.finished::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    height: 10px;
+    top: 17px;
+    background:  var(--primary-base-color);
+
+    z-index: -1;
+  }
+  .StepItem.finished.lastFinished::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    left: 50%;
+    height: 10px;
+    top: 17px;
+    background:  var(--primary-base-color);
+    animation: animateWidth 2s ease-in forwards;
+    z-index: -1;
+  }
+
+  
+  
